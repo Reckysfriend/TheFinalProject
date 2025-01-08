@@ -15,7 +15,7 @@
 
                 4.Kom på och skriv ner fyra egna user stories som du implementerar i din app.
             */
-            Book book = new Book("Lord of the Rings", "One of the best books ever made", Catagory.Book, 10, 100);
+            Book book = new Book("Lord of the Rings", "One of the best books ever made", Category.Book, 10, 100);
             Console.WriteLine(book);
             Menu menu = new Menu();
             menu.GoToMenu();
