@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace TheFinalProject
 {
-    internal enum Catagory
+    internal enum Category
     {
         Book,
-        Food,
-        Game
+        VideoGames,
+        BoardGames,
+        Movies,
+        Accessories,
+        Merchandise
     }
 }
