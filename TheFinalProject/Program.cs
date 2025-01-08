@@ -18,8 +18,13 @@
            
 
 
+
+
+
             Debug debug = new Debug();
             debug.RunDebug();
+
+
 
             Menu menu = new Menu();
             menu.GoToMenu();
