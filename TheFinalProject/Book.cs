@@ -9,10 +9,20 @@ namespace TheFinalProject
     internal class Book : Item
     {
         public string Author { get; private set; }
+        public int PageCount { get; private set; }
+        public int PublishingYear { get; private set; }
+        public string Genre1 {  get; private set; }
+        public string Genre2 { get; private set; }
 
-        public Book(string name, string description, Catagory catagory, int price, int qunatity) :  base(name,description,catagory,price,qunatity)
+
+        public Book(string name, string description, Catagory catagory, int price, int qunatity,string author,int pageCount,int publishingYear,string genre1,string genre2) 
+            :base(name,description,catagory,price,qunatity)
         {
-            Author = "";  
+            Author = author;  
+            PageCount = pageCount;
+            PublishingYear = publishingYear;
+            Genre1 = genre1;
+            Genre2 = genre2;
         }
     }
 }
