@@ -10,13 +10,13 @@ namespace TheFinalProject
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public Category Category { get; private set; }
+        public ItemCategory Category { get; private set; }
         public int Price { get; private set; }
         public int Quantity { get; private set; }
         
         public Item() { }
 
-        public Item(string name, string description, Category category, int price, int qunatity)
+        public Item(string name, string description, ItemCategory category, int price, int qunatity)
         {
             Name = name;
             Description = description;
@@ -27,6 +27,15 @@ namespace TheFinalProject
         public override string ToString()
         {
             return $"--------------------\n{Name} ({Price}$)\n{Description}\n{Quantity} in stock\n--------------------";
+        }
+        public enum ItemCategory
+        {
+            Book,
+            VideoGames,
+            BoardGames,
+            Movies,
+            Accessories,
+            Merchandise
         }
     }
 }
