@@ -16,8 +16,12 @@
                 4.Kom på och skriv ner fyra egna user stories som du implementerar i din app.
             */
 
+
+
+
             Debug debug = new Debug();
             debug.RunDebug();
+
 
             Menu menu = new Menu();
             menu.GoToMenu();

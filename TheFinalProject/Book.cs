@@ -15,8 +15,11 @@ namespace TheFinalProject
         public string Genre2 { get; private set; }
 
 
-        public Book(string name, string description, Catagory catagory, int price, int qunatity,string author,int pageCount,int publishingYear,string genre1,string genre2) 
+
+
+        public Book(string name, string description, Category category, int price, int qunatity,string author,int pageCount,int publishingYear,string genre1,string genre2) 
             :base(name,description,catagory,price,qunatity)
+          
         {
             Author = author;  
             PageCount = pageCount;
