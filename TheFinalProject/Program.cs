@@ -17,8 +17,13 @@
             */
             Book book = new Book("Lord of the Rings", "One of the best books ever made", Catagory.Book, 10, 100);
             Console.WriteLine(book);
+
             Debug debug = new Debug();
             debug.RunDebug();
+
+            Menu menu = new Menu();
+            menu.GoToMenu();
+
         }
     }
 }
