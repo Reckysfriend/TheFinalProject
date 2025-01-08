@@ -15,10 +15,15 @@
 
                 4.Kom på och skriv ner fyra egna user stories som du implementerar i din app.
             */
-            Book book = new Book("Lord of the Rings", "One of the best books ever made", Category.Book, 10, 100);
-            Console.WriteLine(book);
+           
+
+
+            Debug debug = new Debug();
+            debug.RunDebug();
+
             Menu menu = new Menu();
             menu.GoToMenu();
+
         }
     }
 }
