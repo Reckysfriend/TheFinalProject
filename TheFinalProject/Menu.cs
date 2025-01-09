@@ -25,6 +25,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     case 3:
+                        ShoppingCart.ViewCart();
                         menu = false;
                         break;
                     case 4:

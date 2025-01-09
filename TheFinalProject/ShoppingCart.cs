@@ -17,13 +17,24 @@ namespace TheFinalProject
             item.Quantity = qunaitity;
             ShoppingCartlist.Add(item);
         }
-        static public void Addtotalvalue()
+        static public int Addtotalvalue()
         {
             int totalPrice = 0;  
             foreach (Item item in ShoppingCartlist)
             {
                 int quantity = item.Quantity;
                 int price = item.Price;
+                totalPrice += quantity * price;
+            }
+            return totalPrice; 
+        }
+        static public void ViewCart()
+        {
+            foreach (Item item in ShoppingCartlist)
+            {
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Quantity);
+                Addtotalvalue();
             }
         }
     }
