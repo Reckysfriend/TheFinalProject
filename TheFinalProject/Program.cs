@@ -26,8 +26,7 @@
 
 
 
-            Menu menu = new Menu();
-            menu.GoToMenu();
+            Menu.GoToMenu();
 
         }
     }

@@ -8,7 +8,7 @@ namespace TheFinalProject
 {
     internal class Menu
     {
-        public void GoToMenu()
+        static public void GoToMenu()
         {
             bool menu = true;
             while (menu)
