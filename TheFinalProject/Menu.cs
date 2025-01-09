@@ -21,6 +21,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     case 2:
+                        ItemOrganisation.DisplayCatlog();
                         menu = false;
                         break;
                     case 3:
