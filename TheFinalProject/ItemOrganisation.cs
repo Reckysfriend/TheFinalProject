@@ -75,9 +75,10 @@ namespace TheFinalProject
                                     subChoice = false;
                                     GoToItem(index);
                                 }
-                                else
+                                else if (userInput <= quantity)
                                 {
-                                    //Add item to cart passing the item and quanity of items.
+                                    ShoppingCart.AddItemToShoppingCart(itemList[index], quantity);
+                                    ItemOrganisation.itemList[index].Quantity -= userInput;
                                     subChoice = false;
                                 }
                             }
