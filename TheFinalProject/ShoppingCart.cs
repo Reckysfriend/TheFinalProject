@@ -11,16 +11,24 @@ namespace TheFinalProject
 {
     internal class ShoppingCart
     {
-        public List<ShoppingCart> ShoppingCartlist = new List<ShoppingCart> ();
-        ShoppingCart shoppingCart = new ShoppingCart ();
-    }
-    public void AddItemToShoppingCart()
+        static public List<Item> ShoppingCartlist = new List<Item>();
+        static public void AddItemToShoppingCart()
         {
-            ShoppingCart cart = new ShoppingCart ();
-            Item item = new Item();
-            Console.WriteLine("What items would you like to add to your shoppingcart?");
-            Console.WriteLine($"{item}");
-            
-            Console.WriteLine($"you have added{item} to your shoppingcart");
+            ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
+            foreach (Item item in ShoppingCartlist) 
+            {
+                Console.WriteLine(item);
+            }
         }
+        static public void Addtotalvalue()
+        {
+            int totalPrice = 0;  
+            foreach (Item item in ShoppingCartlist)
+            {
+                int quantity = item.Quantity;
+                int price = item.Price;
+            }
+        }
+    }
+        
 }
