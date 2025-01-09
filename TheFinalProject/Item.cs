@@ -8,11 +8,11 @@ namespace TheFinalProject
 {
     internal class Item
     {
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public ItemCategory Category { get; private set; }
-        public int Price { get; private set; }
-        public int Quantity { get; private set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public ItemCategory Category { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
         
         public Item() { }
 
