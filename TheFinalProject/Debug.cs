@@ -25,10 +25,7 @@ namespace TheFinalProject
                 Item item = new Item(name,description,catagory,price,quantity);
                 ItemOrganisation.itemList.Add(item);
             }
-            foreach (Item item in ItemOrganisation.itemList)
-            {
-                Console.WriteLine(item);
-            }
+           
         }
         
 
