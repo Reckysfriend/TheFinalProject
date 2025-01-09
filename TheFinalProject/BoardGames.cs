@@ -13,7 +13,7 @@ namespace TheFinalProject
         public string Genre2 { get; private set; }
         public string Publisher { get;private set; }
         public string PlayerCount { get; private set; }
-        public BoardGames(string name, string description, Category category, int price, int qunatity, string type, string genre1, string genre2, string publisher, string playercount)
+        public BoardGames(string name, string description, ItemCategory category, int price, int qunatity, string type, string genre1, string genre2, string publisher, string playercount)
             : base(name, description, category, price, qunatity)
         {
             Type = type;

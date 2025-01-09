@@ -17,7 +17,7 @@ namespace TheFinalProject
 
 
 
-        public Book(string name, string description, Category category, int price, int qunatity,string author,int pageCount,int publishingYear,string genre1,string genre2) 
+        public Book(string name, string description, ItemCategory category, int price, int qunatity,string author,int pageCount,int publishingYear,string genre1,string genre2) 
             :base(name,description,category,price,qunatity)
 
 
