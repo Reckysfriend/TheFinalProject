@@ -26,7 +26,7 @@ namespace TheFinalProject
         }
         public override string ToString()
         {
-            return $"--------------------\n{Name} ({Price}$)\n{Description}\n{Quantity} in stock\n--------------------";
+            return $"\n  {Name} {Price}$\n  {Quantity} in stock\n";
         }       
     }
 }

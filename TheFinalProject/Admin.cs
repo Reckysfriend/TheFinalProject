@@ -8,5 +8,6 @@ namespace TheFinalProject
 {
     internal class Admin
     {
+        static public bool adminMode = false;
     }
 }
