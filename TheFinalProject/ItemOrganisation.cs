@@ -78,9 +78,9 @@ namespace TheFinalProject
                                 else if (userInput <= quantity)
                                 {
                                     ShoppingCart.AddItemToShoppingCart(itemList[index], userInput);
-                                    ItemOrganisation.itemList[index].Quantity -= userInput;
                                     subChoice = false;
                                     Menu.GoToMenu();
+                                   
                                 }
                             }
                             break;
