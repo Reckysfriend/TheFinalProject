@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheFinalProject
 {
-    internal enum Category
+    internal class UserData
     {
-        Book,
-        VideoGames,
-        BoardGames,
-        Movies,
-        Accessories,
-        Merchandise
     }
 }
