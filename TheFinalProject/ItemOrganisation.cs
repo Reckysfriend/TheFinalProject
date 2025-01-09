@@ -8,5 +8,6 @@ namespace TheFinalProject
 {
     internal class ItemOrganisation
     {
+        static public List<Item> itemList = new List<Item>();
     }
 }
