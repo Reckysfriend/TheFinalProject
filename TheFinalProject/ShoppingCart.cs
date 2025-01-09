@@ -11,16 +11,16 @@ namespace TheFinalProject
 {
     internal class ShoppingCart
     {
-        static public List<Item> ShoppingCartlist = new List<Item>();
+        static public List<Item> ShoppingCartList = new List<Item>();
         static public void AddItemToShoppingCart(Item item, int qunaitity)
         {
             item.Quantity = qunaitity;
-            ShoppingCartlist.Add(item);
+            ShoppingCartList.Add(item);
         }
         static public int Addtotalvalue()
         {
             int totalPrice = 0;  
-            foreach (Item item in ShoppingCartlist)
+            foreach (Item item in ShoppingCartList)
             {
                 int quantity = item.Quantity;
                 int price = item.Price;
@@ -30,11 +30,11 @@ namespace TheFinalProject
         }
         static public void ViewCart()
         {
-            foreach (Item item in ShoppingCartlist)
+            Console.WriteLine(ShoppingCartList[0].Quantity);
+            foreach (Item item in ShoppingCartList)
             {
                 Console.WriteLine(item.Name);
                 Console.WriteLine(item.Quantity);
-                Addtotalvalue();
             }
         }
     }
