@@ -80,6 +80,7 @@ namespace TheFinalProject
                                     ShoppingCart.AddItemToShoppingCart(itemList[index], quantity);
                                     ItemOrganisation.itemList[index].Quantity -= userInput;
                                     subChoice = false;
+                                    Menu.GoToMenu();
                                 }
                             }
                             break;
