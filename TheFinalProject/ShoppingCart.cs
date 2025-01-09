@@ -30,12 +30,13 @@ namespace TheFinalProject
         }
         static public void ViewCart()
         {
+            int totalprice = Addtotalvalue();
             foreach (Item item in ShoppingCartlist)
             {
                 Console.WriteLine(item.Name);
                 Console.WriteLine(item.Quantity);
-                Addtotalvalue();
             }
+            Console.ReadLine();
         }
     }
         
