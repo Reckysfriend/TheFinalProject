@@ -15,18 +15,33 @@ namespace TheFinalProject
         static public void AddItemToShoppingCart()
         {
             ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
+            ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
+            ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
+            ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
+            ShoppingCartlist.Add(ItemOrganisation.itemList[8]);
             foreach (Item item in ShoppingCartlist) 
             {
                 Console.WriteLine(item);
             }
         }
-        static public void Addtotalvalue()
+        static public int Addtotalvalue()
         {
             int totalPrice = 0;  
             foreach (Item item in ShoppingCartlist)
             {
                 int quantity = item.Quantity;
                 int price = item.Price;
+                totalPrice += quantity * price;
+            }
+            return totalPrice; 
+        }
+        static public void ViewCart()
+        {
+            foreach (Item item in ShoppingCartlist)
+            {
+                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Quantity);
+                Addtotalvalue();
             }
         }
     }
