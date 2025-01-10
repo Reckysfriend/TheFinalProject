@@ -60,7 +60,7 @@ namespace TheFinalProject
                         break;
                     default:
                         Console.Clear();
-                        Console.WriteLine("This is not a valid syntax");
+                        Console.WriteLine("Please pick an existing option");
                         break;
                 }
             }
@@ -76,9 +76,18 @@ namespace TheFinalProject
                 switch (menuChoice)
                 {
                     case 1:
-                        ShoppingCartList.Clear();
-                        Console.Clear();
-                        Console.WriteLine("Thank you for your purchase");
+                        if (ShoppingCartList.Count <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("There are no items in the cart to purchase");
+                            Menu.GoToMenu();
+                        }
+                        else
+                        {
+                            ShoppingCartList.Clear();
+                            Console.Clear();
+                            Console.WriteLine("Thank you for your purchase");
+                        }
                         Menu.GoToMenu();
                         menu = false;
                         break;
@@ -88,7 +97,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     default:
-                        Console.WriteLine("not a valid syntax");
+                        Console.WriteLine("Please pick an existing option");
                         break;
                 }
 
@@ -109,7 +118,17 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     case 2:
-                        ShoppingCartList.Clear();
+                        if (ShoppingCartList.Count <= 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("There are no items to remove");
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            ShoppingCartList.Clear();
+                            Console.WriteLine("You just cleared the cart");
+                        }
                         Menu.GoToMenu();
                         menu = false;
                         break;
