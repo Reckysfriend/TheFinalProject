@@ -121,59 +121,8 @@ namespace TheFinalProject
                 }
             }
 
-        }
+        }       
         static void ItemEdit(Item item, int index)
-        {
-            Console.WriteLine($"{item.Name}\n[1] Edit General Data (Name,Decription,Category,Price,Quantity)\n[2] Edit {item.Category} Speficic Data" +
-                $"\n[3] Return");
-            bool choiceLoop = true;
-            while (choiceLoop)
-            {
-                Int32.TryParse(Console.ReadLine(), out int choice);
-                switch (choice)
-                {
-                    case 1:
-                        GeneralItemEdit(item, index);
-                        break;
-                    case 2:
-                        SpeficicItemEdit(item, index);
-                        break;
-                    case 3:
-                        GoToItem(index);
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid choice");
-                        break;
-                }
-            }
-        }
-        static void SpeficicItemEdit(Item item, int index)
-        {
-            ItemCategory category = item.Category;
-
-            string editItemStr = "";
-            if (category == ItemCategory.Accessories)
-            {
-                
-            }
-            else if (category == ItemCategory.BoardGames)
-            {
-            }
-            else if (category == ItemCategory.Book)
-            {
-            }
-            else if (category == ItemCategory.Merchandise)
-            {
-            }
-            else if (category == ItemCategory.Movies)
-            {
-            }
-            else if (category == ItemCategory.VideoGames)
-            {
-
-            }
-        }
-        static void GeneralItemEdit(Item item, int index)
         {
            
             bool choiceLoop = true;
@@ -254,6 +203,7 @@ namespace TheFinalProject
                             }
                             int amountOfCategories = Enum.GetValues(typeof(ItemCategory)).Length;
                             Int32.TryParse(Console.ReadLine(), out int categoryChoice);
+                            categoryChoice -= 1;
                             if (categoryChoice > 0 && categoryChoice <= amountOfCategories)
                             {
                                 categoryLoop = false;
