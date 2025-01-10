@@ -12,9 +12,9 @@ namespace TheFinalProject
     internal class ShoppingCart
     {
         static public List<Item> ShoppingCartList = new List<Item>();
-        static public void AddItemToShoppingCart(Item item, int qunaitity)
+        static public void AddItemToShoppingCart(Item item,int qunatity)
         {
-            item.Quantity = qunaitity;
+            item.Quantity = qunatity;
             ShoppingCartList.Add(item);
         }
         static public int Addtotalvalue()

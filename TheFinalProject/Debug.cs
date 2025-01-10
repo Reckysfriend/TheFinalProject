@@ -29,7 +29,7 @@ namespace TheFinalProject
         }
         public void RunDebug2()
         {
-            Item item1 = new Item("Apple", "It is a fruit", ItemCategory.Merchandise, 5, 10);
+            Item item1 = new Item("Apple", "It is a fruit", ItemCategory.Merchandise, 5, 0);
             Item item2= new Item("Pear", "It is a fruit", ItemCategory.Merchandise, 4, 15);
             Item item3 = new Item("Berry", "It is a berry", ItemCategory.Merchandise, 15, 100);
             Item item4 = new Item("Cucumber", "It is a vegetable", ItemCategory.Merchandise, 2, 1000);
