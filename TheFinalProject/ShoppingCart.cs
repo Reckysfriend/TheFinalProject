@@ -143,19 +143,18 @@ namespace TheFinalProject
                     Item selectedItem = ShoppingCartList[indexChoice - 1];
                     Console.WriteLine("HOW MANY OF SELECTED ITEM DO YOU WISH TO REMOVE");
                     Int32.TryParse(Console.ReadLine(), out int quantityToRemove);
-                    if (quantityToRemove > 0 && quantityToRemove <= ShoppingCartList.Count(item => item.Equals(selectedItem)))
+                    if (quantityToRemove > 0 && quantityToRemove <= selectedItem.Quantity)
                     {
-                        int count = 0;
-                        for (int j = ShoppingCartList.Count - 1; j >= 0 && count < quantityToRemove; j--)
+                        if (quantityToRemove == selectedItem.Quantity)
                         {
-                            if (ShoppingCartList[j].Equals(selectedItem))
-                            {
-                                ShoppingCartList.RemoveAt(j);
-                                count++;
-                            }
+                            ShoppingCartList.RemoveAt(indexChoice - 1);
+                        }
+                        else
+                        {
+                            ShoppingCartList[indexChoice - 1].Quantity -= quantityToRemove;
                         }
                         Console.Clear();
-                        Console.WriteLine($"{quantityToRemove} items removed from the cart.");
+                        Console.WriteLine($"You removed {quantityToRemove}x {selectedItem.Name} from the cart!");
                     }
                     else
                     {
@@ -163,6 +162,7 @@ namespace TheFinalProject
                         Console.WriteLine("Invalid syntax");
                     }
                     choiceLoop = false;
+                    ViewCart();
                 }
                 else 
                 {

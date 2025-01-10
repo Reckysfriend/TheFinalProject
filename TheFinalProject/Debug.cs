@@ -10,7 +10,7 @@ namespace TheFinalProject
     {
         Item item = new Item();
         Random random = new Random();
-        int QuanityOfItemsToGenerate = 1;
+        int QuanityOfItemsToGenerate = 5;
         public void RunDebug()
         {
             for (int i = 0; i < QuanityOfItemsToGenerate; i++)
