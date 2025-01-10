@@ -21,7 +21,7 @@
 
 
             Debug debug = new Debug();
-            debug.RunDebug();
+            debug.RunDebug2();
 
 
 
