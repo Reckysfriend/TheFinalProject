@@ -35,6 +35,7 @@ namespace TheFinalProject
                 }
                 else if(indexChoice >= 0 && indexChoice <= itemList.Count)
                 {
+                    Console.Clear();
                     choiceLoop = false;
                     GoToItem(indexChoice - 1);
                 }
@@ -49,7 +50,6 @@ namespace TheFinalProject
             int price = itemList[index].Price;
             int quantity = itemList[index].Quantity;
             bool choiceLoop = true;
-            Console.Clear();
             if (Admin.adminMode == true )
             {
                 Console.WriteLine($"{name} ({price}$)\n\n\t\tCategory: {category}" +
@@ -91,25 +91,39 @@ namespace TheFinalProject
                     switch (choice)
                     {
                         case 1:
-                            bool subChoice = true;
-                            while (subChoice)
+                            if (quantity != 0)
+                            {
+                                bool subChoice = true;
+                                while (subChoice)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine($"\t\tHow many {name} would you like to buy? ({quantity} in stock)");
+                                    Console.Write("\n\n\t\tEnter 0 to return: ");
+                                    Int32.TryParse(Console.ReadLine(), out int userInput);
+                                    if (userInput == 0)
+                                    {
+                                        subChoice = false;
+                                        GoToItem(index);
+                                    }
+                                    else if (userInput <= quantity)
+                                    {
+                                        Item cartItem = itemList[index];
+                                        cartItem.Name = "Not a fruit";
+                                        ShoppingCart.AddItemToShoppingCart(cartItem, userInput);
+                                        subChoice = false;
+                                        Menu.GoToMenu();
+                                    }
+                                }
+
+                            }
+                            else
                             {
                                 Console.Clear();
-                                Console.WriteLine($"\t\tHow many {name} would you like to buy? ({quantity} in stock)");
-                                Console.Write("\n\n\t\tEnter 0 to return: ");
-                                Int32.TryParse(Console.ReadLine(), out int userInput);
-                                if (userInput == 0)
-                                {
-                                    subChoice = false;
-                                    GoToItem(index);
-                                }
-                                else if (userInput <= quantity)
-                                {
-                                    ShoppingCart.AddItemToShoppingCart(itemList[index], userInput);
-                                    subChoice = false;
-                                    Menu.GoToMenu();                                  
-                                }
+                                Console.WriteLine("Sorry this item is out of stock");
+                                choiceLoop = false;
+                                GoToItem(index);
                             }
+                           
                             break;
                         case 2:
                             choiceLoop = false;

@@ -26,7 +26,16 @@ namespace TheFinalProject
         }
         public override string ToString()
         {
-            return $"\n  {Name} {Price}$\n  {Quantity} in stock\n";
+            if (Quantity > 0) 
+            {
+                return $"\n  {Name} {Price}$\n  {Quantity} in stock\n";
+            }
+            else
+            {
+                return $"\n  {Name}\n OUT OF STOCK!\n";
+            }
+
+
         }       
     }
 }
