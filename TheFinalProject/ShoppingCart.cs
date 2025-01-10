@@ -133,7 +133,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     default:
-                        Console.WriteLine("This is not a valid syntax");
+                        Console.WriteLine("This is not a valid option");
                         break;
                 }
             }
@@ -178,14 +178,17 @@ namespace TheFinalProject
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("Invalid syntax");
+                        Console.WriteLine("Not a valid option");
+                        Menu.GoToMenu();
                     }
                     choiceLoop = false;
                     ViewCart();
                 }
                 else 
                 {
-                    Console.WriteLine("Not a Valid syntax");
+                    Console.Clear();
+                    Console.WriteLine("Not a valid option");
+                    Menu.GoToMenu();
                 }
 
             }
