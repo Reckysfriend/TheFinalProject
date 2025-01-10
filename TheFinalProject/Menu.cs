@@ -22,8 +22,6 @@ namespace TheFinalProject
                 {
                     case 1:
                         Console.Clear();
-                        ItemSorting.SortItem();
-                        ItemSorting.PrintSortedList();
                         menu = false;
                         break;
                     case 2:

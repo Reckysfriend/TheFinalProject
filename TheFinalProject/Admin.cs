@@ -35,18 +35,6 @@ namespace TheFinalProject
                 originalText += "\n\n\n[5]Enter Admin Mode";
             }
             return originalText;
-        }
-        public static void PrintItemProperties(object item)
-        {
-            Type type = item.GetType();
-            PropertyInfo[] properties = type.GetProperties();
-            int i = 1;
-            foreach (var property in properties)
-            {
-                Console.WriteLine($"[{i}] {property.Name}");
-                i++;
-            }
-        }
-        
+        }        
         }
     }
