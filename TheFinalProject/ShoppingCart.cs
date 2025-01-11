@@ -11,13 +11,12 @@ namespace TheFinalProject
 {
     internal class ShoppingCart
     {
-        static public List<Item> ShoppingCartList = new List<Item>();
-        static public void AddItemToShoppingCart(Item item,int qunatity)
+         static public List<Item> ShoppingCartList = new List<Item>();
+         public void AddItemToShoppingCart(Item item)
         {
-            item.Quantity = qunatity;
             ShoppingCartList.Add(item);
         }
-        static public int Addtotalvalue()
+         static public int Addtotalvalue()
         {
             int totalPrice = 0;
             foreach (Item item in ShoppingCartList)
@@ -28,7 +27,7 @@ namespace TheFinalProject
             }
             return totalPrice;
         }
-        static public void ViewCart()
+         static public void ViewCart()
         {
             int totalprice = Addtotalvalue();
             Console.WriteLine("Cart");
@@ -66,7 +65,7 @@ namespace TheFinalProject
             }
 
         }
-        static public void ConfirmPurchase()
+         static public void ConfirmPurchase()
         {
             Console.WriteLine("Would you like to confirm your purchase [1]Yes [2]No");
             bool menu = true;
@@ -103,7 +102,7 @@ namespace TheFinalProject
 
             }
         }
-        static public void RemoveItem() 
+         static public void RemoveItem() 
         {
             bool menu = true;
             while (menu)
@@ -138,7 +137,7 @@ namespace TheFinalProject
                 }
             }
         }
-        static void RemoveSpecificItem()
+         static public void RemoveSpecificItem()
         {
             bool choiceLoop = true;
             int i = 1;
