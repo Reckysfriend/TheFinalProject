@@ -99,7 +99,8 @@ namespace TheFinalProject
                         {
                             Console.Clear();
                             Console.WriteLine("There are no items in the cart to purchase");
-                            Menu.GoToMenu();
+                            menu = false;
+                            ViewCart();
                         }
                         else
                         {
@@ -112,10 +113,11 @@ namespace TheFinalProject
                         break;
                     case 2:
                         Console.Clear();
-                        Menu.GoToMenu();
+                        ViewCart();
                         menu = false;
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Please pick an existing option");
                         break;
                 }
@@ -127,13 +129,15 @@ namespace TheFinalProject
             bool menu = true;
             while (menu)
             {
+                Console.Clear();
                 Console.WriteLine("[1]Remove item   [2]Clear Cart");
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice)
                 {
                     case 1:
+                        Console.Clear();
                         RemoveSpecificItem();
-                        Menu.GoToMenu();
+                        ViewCart();
                         menu = false;
                         break;
                     case 2:
@@ -156,10 +160,11 @@ namespace TheFinalProject
                             ShoppingCartList.Clear();
                             Console.WriteLine("You just cleared the cart");
                         }
-                        Menu.GoToMenu();
+                        ViewCart();
                         menu = false;
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("This is not a valid option");
                         break;
                 }
@@ -182,12 +187,13 @@ namespace TheFinalProject
                 {
                     Console.Clear();
                     choiceLoop = false;
-                    Menu.GoToMenu();
+                    ViewCart();
                 }
                 else if (indexChoice >= 1 && indexChoice <= ShoppingCartList.Count)
                 {
                     Item selectedItem = ShoppingCartList[indexChoice - 1];
-                    Console.WriteLine("HOW MANY OF SELECTED ITEM DO YOU WISH TO REMOVE");
+                    Console.Clear();
+                    Console.WriteLine($"HOW MANY OF {selectedItem.Name} DO YOU WANT TO REMOVE (YOU HAVE {selectedItem.Quantity} IN CART)");
                     Int32.TryParse(Console.ReadLine(), out int quantityToRemove);
                     if (quantityToRemove > 0 && quantityToRemove <= selectedItem.Quantity)
                     {
@@ -220,7 +226,7 @@ namespace TheFinalProject
                     {
                         Console.Clear();
                         Console.WriteLine("Not a valid option");
-                        Menu.GoToMenu();
+                        ViewCart();
                     }
                     choiceLoop = false;
                     ViewCart();
@@ -229,7 +235,7 @@ namespace TheFinalProject
                 {
                     Console.Clear();
                     Console.WriteLine("Not a valid option");
-                    Menu.GoToMenu();
+                    ViewCart();
                 }
 
             }
