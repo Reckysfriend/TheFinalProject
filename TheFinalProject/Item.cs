@@ -69,7 +69,14 @@ namespace TheFinalProject
             bool menu = true;
             while (menu) 
             {
-                Console.Write($"What would you like to add [1]Name{itemName}\n[2]Description{description}\n[3]Category{category}\n[4]Price{itemPrice}\n[5]Quantity{itemQuantity}\n");
+                if (hasName == true && hasDescription == true && hasCategory == true && hasPrice == true && hasQuantity == true)
+                {
+                    Console.Write($"What would you like to add \n[1]Name: {itemName}\n[2]Description: {description}\n[3]Category: {category}\n[4]Price: {itemPrice}$\n[5]Quantity: {itemQuantity}x\n[6]Add item\nChoice:");
+                }
+                else
+                {
+                    Console.Write($"What would you like to add \n[1]Name: {itemName}\n[2]Description: {description}\n[3]Category: {category}\n[4]Price: {itemPrice}$\n[5]Quantity: {itemQuantity}x\nChoice:");
+                }
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice) 
                 {
@@ -81,6 +88,7 @@ namespace TheFinalProject
                         {
                             if (catalogItem.Name == userInput)
                             {
+                                Console.Clear();
                                 Console.WriteLine("An item already exists with this name please choose another name");
                             }
                             else
@@ -89,17 +97,20 @@ namespace TheFinalProject
                                 hasName = true;
                             }
                         }
+                        Console.Clear();
                         break;
                     case 2:
                         Console.WriteLine("Type the desired description");
                         string userDescription = Console.ReadLine() ;
                         description = userDescription;
                         hasDescription = true;
+                        Console.Clear();
                         break;
                     case 3:
                         bool categoryLoop = true;
                         while (categoryLoop)
                         {
+                            Console.WriteLine("Type desired category");
                             i = 1;
                             Console.WriteLine($"");
                             foreach (var name in Enum.GetNames(typeof(ItemCategory)))
@@ -122,6 +133,7 @@ namespace TheFinalProject
                                 Console.WriteLine("Please enter a valid choice");
                             }
                         }
+                        Console.Clear();
                         break;
                     case 4:
                         Console.WriteLine("Type price of item");
@@ -132,7 +144,7 @@ namespace TheFinalProject
                             if (userPrice > 0)
                             {
                                 innerLoop = false;
-                                userPrice = itemPrice;
+                                itemPrice = userPrice;
                                 hasPrice = true;
                             }
                             else
@@ -141,6 +153,7 @@ namespace TheFinalProject
                                 Console.WriteLine("Aint nobody getting free stuff!");
                             }
                         }
+                        Console.Clear();
                         break;
                     case 5:
                         Console.WriteLine("Type Quantity of item");
@@ -150,7 +163,8 @@ namespace TheFinalProject
                             Int32.TryParse(Console.ReadLine(), out int userQuantity);
                             if (userQuantity >= 0)
                             {
-                                userQuantity = itemQuantity;
+                                itemQuantity = userQuantity;
+                                hasQuantity = true;
                                 subLoop = false;
                             }
                             else
@@ -159,12 +173,14 @@ namespace TheFinalProject
                                 Console.WriteLine("You can't add no quantity!");
                             }
                         }
+                        Console.Clear();
                         break;
                     case 6:
                         if (hasName == true && hasDescription == true &&  hasCategory == true && hasPrice == true && hasQuantity == true)
                         {
                             Item item = new Item(itemName, description, category, itemPrice, itemQuantity);
                             ItemOrganisation.itemList.Add(item);
+                            Console.Clear();
                             Console.WriteLine("You have added an item");
                         }
                         else

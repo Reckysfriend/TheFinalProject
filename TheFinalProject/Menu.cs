@@ -52,7 +52,7 @@ namespace TheFinalProject
                         if (Admin.adminMode == true)
                         {
                             Console.Clear();
-                            //Go to CreateItem
+                            Item.CreateItem();
                         }
                         else
                         {
