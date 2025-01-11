@@ -18,9 +18,10 @@ namespace TheFinalProject
             string adminStr = Admin.CreateAdminString(input);
             bool choiceLoop = true;
             int i = 1;
-            foreach (Item item in ItemOrganisation.itemList)
+            string catalogStr = "";
+            foreach (Item item in itemList)
             {
-                Console.WriteLine($"====================\n\t[{i}]\n{item}\n====================");
+                Console.Write($"+--------------------+\n\t[{i}]{item}\n+--------------------+\n");
                 i++;
             }
             while ( choiceLoop )
@@ -44,23 +45,29 @@ namespace TheFinalProject
         }
         static public void GoToItem(int index)
         {
-            ShoppingCart shoppingCart = new ShoppingCart();
             string name = itemList[index].Name;
             string description = itemList[index].Description;
             ItemCategory category = itemList[index].Category;
-            int price = itemList[index].Price;
+            double price = itemList[index].Price;
             int quantity = itemList[index].Quantity;
+            int id = itemList[index].ID;
             bool choiceLoop = true;
             if (Admin.adminMode == true )
             {
-                Console.WriteLine($"{name} ({price}$)\n\n\t\tCategory: {category}" +
-                               $"\n\n\t\tDescription: {description})\n[1]Edit item   [2]Remove item   [3] Return");
+                
                 choiceLoop = true;
                 while (choiceLoop)
                 {
+                    Console.WriteLine($"{name}\nID: {id.ToString("00000")}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
+                    $"{quantity}\n\n\t[1]EDIT   [2]REMOVE   [0] RETURN");
                     Int32.TryParse(Console.ReadLine(), out int choice);
                     switch (choice)
                     {
+                        case 0:
+                            Console.Clear();
+                            choiceLoop = false;
+                            DisplayCatlog();
+                            break;
                         case 1:
                             Console.Clear();
                             ItemEdit(itemList[index], index);
@@ -68,22 +75,18 @@ namespace TheFinalProject
                         case 2:
                             itemList.RemoveAt(index);
                             DisplayCatlog();
-                        break;
-                        case 3:
-                        break;
+                        break;                  
                     default:
                         Console.Clear();
-                        Console.WriteLine("Please enter a valid menu choice\n");
+                        Console.WriteLine("PLEASE ENTER A VALID MENU CHOICE\n");
                         break;
                 }
-                }
-
-                        
+                }                      
             }
             else
             {
                 Console.WriteLine($"\t\t=======================\n\t\t| [1] Add to Cart     | \n\t\t|                     |\n" +
-                                $"\t\t| [2] Return          |\t\t\n\t\t=======================\n\n\t\t{name} ({price}$)\n\n\t\tCategory: {category}" +
+                                $"\t\t| [0] Return          |\t\t\n\t\t=======================\n\n\t\t{name} ({price}$)\n\n\t\tCategory: {category}" +
                                 $"\n\n\t\tDescription: {description})");
                 choiceLoop = true;
                 while (choiceLoop)
@@ -91,6 +94,10 @@ namespace TheFinalProject
                     Int32.TryParse(Console.ReadLine(), out int choice);
                     switch (choice)
                     {
+                        case 0:
+                            choiceLoop = false;
+                            DisplayCatlog();
+                            break;
                         case 1:
                             if (quantity != 0)
                             {
@@ -111,7 +118,7 @@ namespace TheFinalProject
                                         Item cartItem = new (itemList[index]);
                                         cartItem.Quantity = userInput;
                                         itemList[index].Quantity -= userInput;
-                                        shoppingCart.AddItemToShoppingCart(cartItem);                                       
+                                        ShoppingCart.AddItemToShoppingCart(cartItem);                                       
                                         subChoice = false;
                                         Menu.GoToMenu();
                                     }
@@ -127,10 +134,7 @@ namespace TheFinalProject
                             }
                            
                             break;
-                        case 2:
-                            choiceLoop = false;
-                            DisplayCatlog();
-                            break;
+                       
                     }
             
                         
@@ -145,10 +149,14 @@ namespace TheFinalProject
             bool subLoop = false;
             while (choiceLoop)
             {
-                Console.WriteLine("General:\n[1] Name [2] Descrpition [3] Category [4] Price [5] Stock\n\n[6] Return");
+                Console.WriteLine("General:\n[1] Name [2] Descrpition [3] Category [4] Price [5] Stock\n\n[0] Return");
                 Int32.TryParse(Console.ReadLine(), out int choice);
                 switch (choice)
                 {
+                    case 0:
+                        Console.Clear();
+                        GoToItem(index);
+                        break;
                     case 1:
                         Console.WriteLine($"Current name: {item.Name}");
                         Console.Write("\nNew name:");
@@ -220,7 +228,7 @@ namespace TheFinalProject
                             int amountOfCategories = Enum.GetValues(typeof(ItemCategory)).Length;
                             Int32.TryParse(Console.ReadLine(), out int categoryChoice);
                             categoryChoice -= 1;
-                            if (categoryChoice > 0 && categoryChoice <= amountOfCategories)
+                            if (categoryChoice >= 0 && categoryChoice <= amountOfCategories)
                             {
                                 categoryLoop = false;
                                 while (subLoop)
@@ -338,10 +346,7 @@ namespace TheFinalProject
                             }
                         }
                         break;
-                    case 6:
-                        Console.Clear();
-                        ItemEdit(item, index);
-                        break;
+                   
                     default:
                         Console.Clear();
                         Console.WriteLine("Please enter a valid menu choice");

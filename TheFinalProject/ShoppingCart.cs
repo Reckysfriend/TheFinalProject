@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -12,24 +13,43 @@ namespace TheFinalProject
     internal class ShoppingCart
     {
          static public List<Item> ShoppingCartList = new List<Item>();
-         public void AddItemToShoppingCart(Item item)
+         static public void AddItemToShoppingCart(Item item)
         {
-            ShoppingCartList.Add(item);
+            if (ShoppingCartList.Count != 0)
+            {
+                foreach (var cartitem in ShoppingCartList)
+                {
+                    if (cartitem.ID == item.ID)
+                    {
+                        cartitem.Quantity += item.Quantity;
+                    }
+                    else
+                    {
+                        ShoppingCartList.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                ShoppingCartList.Add(item);
+            }
+           
+                     
         }
-         static public int Addtotalvalue()
+         static public double Addtotalvalue()
         {
-            int totalPrice = 0;
+            double totalPrice = 0;
             foreach (Item item in ShoppingCartList)
             {
-                int quantity = item.Quantity;
-                int price = item.Price;
+                double quantity = item.Quantity;
+                double price = item.Price;
                 totalPrice += quantity * price;
             }
             return totalPrice;
         }
          static public void ViewCart()
         {
-            int totalprice = Addtotalvalue();
+            double totalprice = Addtotalvalue();
             Console.WriteLine("Cart");
             foreach (Item item in ShoppingCartList)
             {
@@ -125,6 +145,14 @@ namespace TheFinalProject
                         else
                         {
                             Console.Clear();
+                            foreach (var cartItem in ShoppingCartList)
+                            {
+                                foreach (var catalogItem in ItemOrganisation.itemList)
+                                if (catalogItem.ID == cartItem.ID)
+                                {
+                                    catalogItem.Quantity += cartItem.Quantity;
+                                }
+                            }
                             ShoppingCartList.Clear();
                             Console.WriteLine("You just cleared the cart");
                         }
@@ -165,10 +193,24 @@ namespace TheFinalProject
                     {
                         if (quantityToRemove == selectedItem.Quantity)
                         {
+                            foreach (var catalogItem in ItemOrganisation.itemList)
+                            {
+                                if (catalogItem.ID == selectedItem.ID)
+                                {
+                                    catalogItem.Quantity += quantityToRemove;
+                                }
+                            }   
                             ShoppingCartList.RemoveAt(indexChoice - 1);
                         }
                         else
                         {
+                            foreach (var catalogItem in ItemOrganisation.itemList)
+                            {
+                                if (catalogItem.ID == selectedItem.ID)
+                                {
+                                    catalogItem.Quantity += quantityToRemove;
+                                }
+                            }
                             ShoppingCartList[indexChoice - 1].Quantity -= quantityToRemove;
                         }
                         Console.Clear();

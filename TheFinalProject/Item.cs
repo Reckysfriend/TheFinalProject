@@ -45,11 +45,11 @@ namespace TheFinalProject
         {
             if (Quantity > 0) 
             {
-                return $"\n  {Name} {Price}$\n  {Quantity} in stock\n ID: {ID.ToString("000000000")}" ;
+                return $"\n{Name}\nPRICE: {Price}$\nSTOCK:{Quantity}";
             }
             else
             {
-                return $"\n  {Name}\n OUT OF STOCK!\n";
+                return $"\n{Name}\n OUT OF STOCK!\n";
             }
 
 
