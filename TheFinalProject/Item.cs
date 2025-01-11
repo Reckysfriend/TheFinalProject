@@ -24,6 +24,14 @@ namespace TheFinalProject
             Price = price;
             Quantity = qunatity;
         }
+        public Item(Item other)
+        {
+            Name = other.Name;
+            Description = other.Description;
+            Category = other.Category;
+            Price = other.Price;
+            Quantity = other.Quantity;
+        }
         public override string ToString()
         {
             if (Quantity > 0) 

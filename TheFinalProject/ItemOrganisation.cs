@@ -44,6 +44,7 @@ namespace TheFinalProject
         }
         static public void GoToItem(int index)
         {
+            ShoppingCart shoppingCart = new ShoppingCart();
             string name = itemList[index].Name;
             string description = itemList[index].Description;
             ItemCategory category = itemList[index].Category;
@@ -107,9 +108,10 @@ namespace TheFinalProject
                                     }
                                     else if (userInput <= quantity)
                                     {
-                                        Item cartItem = itemList[index];
-                                        cartItem.Name = "Not a fruit";
-                                        ShoppingCart.AddItemToShoppingCart(cartItem, userInput);
+                                        Item cartItem = new (itemList[index]);
+                                        cartItem.Quantity = userInput;
+                                        shoppingCart.AddItemToShoppingCart(cartItem);
+                                        itemList[index].Quantity -= userInput;
                                         subChoice = false;
                                         Menu.GoToMenu();
                                     }
