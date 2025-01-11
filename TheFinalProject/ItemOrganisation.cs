@@ -110,8 +110,8 @@ namespace TheFinalProject
                                     {
                                         Item cartItem = new (itemList[index]);
                                         cartItem.Quantity = userInput;
-                                        shoppingCart.AddItemToShoppingCart(cartItem);
                                         itemList[index].Quantity -= userInput;
+                                        shoppingCart.AddItemToShoppingCart(cartItem);                                       
                                         subChoice = false;
                                         Menu.GoToMenu();
                                     }
