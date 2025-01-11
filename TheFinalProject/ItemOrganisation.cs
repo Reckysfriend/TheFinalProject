@@ -58,7 +58,8 @@ namespace TheFinalProject
                 choiceLoop = true;
                 while (choiceLoop)
                 {
-                    Console.WriteLine($"{name}\nID: {id.ToString("00000")}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
+                    Console.WriteLine($"{name}\nID: {id.ToString("00000")}\nDESCRIPTION: {description}\n\n" +
+                        $"PRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
                     $"{quantity}\n\n\t[1]EDIT   [2]REMOVE   [0] RETURN");
                     Int32.TryParse(Console.ReadLine(), out int choice);
                     switch (choice)
@@ -85,9 +86,8 @@ namespace TheFinalProject
             }
             else
             {
-                Console.WriteLine($"\t\t=======================\n\t\t| [1] Add to Cart     | \n\t\t|                     |\n" +
-                                $"\t\t| [0] Return          |\t\t\n\t\t=======================\n\n\t\t{name} ({price}$)\n\n\t\tCategory: {category}" +
-                                $"\n\n\t\tDescription: {description})");
+                Console.WriteLine($"{name}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
+                    $"{quantity}\n\n\t[1]ADD TO CART [0] RETURN");
                 choiceLoop = true;
                 while (choiceLoop)
                 {
@@ -111,10 +111,12 @@ namespace TheFinalProject
                                     if (userInput == 0)
                                     {
                                         subChoice = false;
+                                        Console.Clear();
                                         GoToItem(index);
                                     }
                                     else if (userInput <= quantity)
                                     {
+                                        Console.Clear();
                                         Item cartItem = new (itemList[index]);
                                         cartItem.Quantity = userInput;
                                         itemList[index].Quantity -= userInput;
