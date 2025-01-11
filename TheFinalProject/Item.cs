@@ -8,11 +8,14 @@ namespace TheFinalProject
 {
     internal class Item
     {
+        static int nextID = 0;
+
         public string Name { get; set; }
         public string Description { get; set; }
         public ItemCategory Category { get; set; }
         public int Price { get; set; }
         public int Quantity { get; set; }
+        public int ID { get; private set; }
         
         public Item() { }
 
@@ -23,6 +26,8 @@ namespace TheFinalProject
             Category = category;
             Price = price;
             Quantity = qunatity;
+            nextID++;
+            ID = nextID;
         }
         public Item(Item other)
         {
@@ -31,12 +36,13 @@ namespace TheFinalProject
             Category = other.Category;
             Price = other.Price;
             Quantity = other.Quantity;
+            ID = other.ID;
         }
         public override string ToString()
         {
             if (Quantity > 0) 
             {
-                return $"\n  {Name} {Price}$\n  {Quantity} in stock\n";
+                return $"\n  {Name} {Price}$\n  {Quantity} in stock\n ID: {ID.ToString("000000000")}" ;
             }
             else
             {
