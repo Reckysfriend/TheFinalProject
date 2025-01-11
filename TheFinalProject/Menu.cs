@@ -11,48 +11,78 @@ namespace TheFinalProject
     {
         static public void GoToMenu()
         {
-            string originalMenuStr = "Welcome to amazon prime\n[1]Search item\n[2]View catalog\n[3]View cart\n[4]Exit Program";
-            string menuStr = Admin.CreateMenuAdminString(originalMenuStr);
+            string menuStr = "WELCOME TO CHEAP CHEATING SHOPPERS!\n\n[1] VIEW CATALOG\n[2] VIEW CART\n[3] SORT CATALOG";
+            if (Admin.adminMode == true)
+            {
+                menuStr = "ADMIN MODE\n\n" + menuStr + "\n\n[4] ADD ITEM\n[5] MANAGE DISCOUNTS\n[6] EXIT ADMIN MODE\n\n[0] EXIT PROGRAM";
+            }
+            else
+            {
+                menuStr = menuStr + "\n\n[4] ENTER ADMIN MODE\n\n[0] EXIT PROGRAM";
+            }
             bool menu = true;
             while (menu)
             {
                 Console.WriteLine(menuStr);
+                Console.Write("\nCHOICE: ");
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice)
                 {
-                    case 1:
-                        Console.Clear();
-                        ItemSorting.SortList();
+                    case 0:
                         menu = false;
+                        Environment.Exit(0);
                         break;
-                    case 2:
+                    case 1:
                         Console.Clear();
                         ItemOrganisation.DisplayCatlog();
                         menu = false;
                         break;
-                    case 3:
+                    case 2:
                         Console.Clear();
                         ShoppingCart.ViewCart();
                         menu = false;
                         break;
-                    case 4:
+                    case 3:
+
+                        Console.Clear();
+                        ItemSorting.SortList();
                         menu = false;
-                        Environment.Exit(0);
+                        break;
+                    case 4:
+                        if (Admin.adminMode == true)
+                        {
+                            Console.Clear();
+                            //Go to CreateItem
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Admin.adminMode = true;
+                            GoToMenu();
+                        }
                         break;
                     case 5:
-                        if (Admin.adminMode == false)
+                        if (Admin.adminMode == true)
                         {
-                            Admin.adminMode = true;
+                            Console.Clear();
+                            Discount.GoToDiscountManager();
                         }
-                        else if (Admin.adminMode == true) 
+                        Console.Clear();
+                        GoToMenu();
+                        break;
+                    case 6:
+                        if (Admin.adminMode == true)
                         {
+                            Console.Clear();
                             Admin.adminMode = false;
+                            GoToMenu();
                         }
                         Console.Clear();
                         GoToMenu();
                         break;
                     default:
-                        Console.WriteLine("invalid input");
+                        Console.Clear();
+                        Console.WriteLine("Invalid menu choice\n");
                         break;
 
                 }

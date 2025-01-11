@@ -24,17 +24,5 @@ namespace TheFinalProject
             }
             return adminText;
         }
-        public static string CreateMenuAdminString(string originalText)
-        {
-            if (Admin.adminMode == true)
-            {
-                originalText = "ADMIN MODE\n\n" + originalText + "\n\n\n[5]Exit Admin Mode"; ;
-            }
-            else if (Admin.adminMode == false)
-            {
-                originalText += "\n\n\n[5]Enter Admin Mode";
-            }
-            return originalText;
-        }        
         }
     }

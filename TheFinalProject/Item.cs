@@ -13,7 +13,7 @@ namespace TheFinalProject
         public string Name { get; set; }
         public string Description { get; set; }
         public ItemCategory Category { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public int Quantity { get; set; }
         public int ID { get; private set; }
         
@@ -42,11 +42,11 @@ namespace TheFinalProject
         {
             if (Quantity > 0) 
             {
-                return $"\n  {Name} {Price}$\n  {Quantity} in stock\n ID: {ID.ToString("000000000")}" ;
+                return $"\n{Name}\nPRICE: {Price}$\nSTOCK:{Quantity}";
             }
             else
             {
-                return $"\n  {Name}\n OUT OF STOCK!\n";
+                return $"\n{Name}\n OUT OF STOCK!\n";
             }
 
 
