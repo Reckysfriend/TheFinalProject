@@ -9,17 +9,20 @@ namespace TheFinalProject
 {
     internal class ItemOrganisation
     {
-        static public string sortedListString;
+
+        //The static list that holds all our items in our catalog
         static public List<Item> itemList = new List<Item>();
 
 
         static public void DisplayCatlog()
         {
             string input = "ENTER THE # OF THE ITEM YOU WISH TO VIEW (0 TO RETURN):";
+            //Displays a different string if you ar ein adminMode.
             string adminStr = Admin.CreateAdminString(input);
             bool choiceLoop = true;
             int i = 1;
             string catalogStr = "";
+            //Displays all items in catalog
             foreach (Item item in itemList)
             {
                 Console.Write($"+--------------------+\n\t[{i}]{item}\n+--------------------+\n");
@@ -29,12 +32,14 @@ namespace TheFinalProject
             {               
                 Console.Write(adminStr);
                 Int32.TryParse( Console.ReadLine(), out int indexChoice);
+                //If you give it a value of 0 return
                 if(indexChoice == 0)
                 {
                     Console.Clear();
                     choiceLoop = false;
                     Menu.GoToMenu();
                 }
+                //Checks if the usersinput is a valid choice and goes to the items
                 else if(indexChoice >= 0 && indexChoice <= itemList.Count)
                 {
                     Console.Clear();
@@ -359,7 +364,7 @@ namespace TheFinalProject
         }
         public static void SortList()
         {
-            int max = ItemOrganisation.itemList.Count - 1;
+            int max = itemList.Count - 1;
             bool loop = true;
             while (loop)
             {
@@ -368,18 +373,18 @@ namespace TheFinalProject
                 switch (menuChoice)
                 {
                     case 1:
-                        max = ItemOrganisation.itemList.Count - 1;
+                        max = itemList.Count - 1;
                         for (int i = 0; i < max; i++)
                         {
                             int left = max - i;
                             for (int j = 0; j < left; j++)
                             {
-                                int compare = ItemOrganisation.itemList[j].Name.CompareTo(ItemOrganisation.itemList[j + 1].Name);
+                                int compare = itemList[j].Name.CompareTo(itemList[j + 1].Name);
                                 if (compare > 0)
                                 {
-                                    Item temp = ItemOrganisation.itemList[j];
-                                    ItemOrganisation.itemList[j] = ItemOrganisation.itemList[j + 1];
-                                    ItemOrganisation.itemList[j + 1] = temp;
+                                    Item temp = itemList[j];
+                                    itemList[j] = itemList[j + 1];
+                                    itemList[j + 1] = temp;
                                 }
 
                             }
@@ -390,18 +395,18 @@ namespace TheFinalProject
                         Menu.GoToMenu();
                         break;
                     case 2:
-                        max = ItemOrganisation.itemList.Count - 1;
+                        max = itemList.Count - 1;
                         for (int i = 0; i < max; i++)
                         {
                             int left = max - i;
                             for (int j = 0; j < left; j++)
                             {
-                                int compare = ItemOrganisation.itemList[j].Category.CompareTo(ItemOrganisation.itemList[j + 1].Category);
+                                int compare = itemList[j].Category.CompareTo(itemList[j + 1].Category);
                                 if (compare > 0)
                                 {
-                                    Item temp = ItemOrganisation.itemList[j];
-                                    ItemOrganisation.itemList[j] = ItemOrganisation.itemList[j + 1];
-                                    ItemOrganisation.itemList[j + 1] = temp;
+                                    Item temp = itemList[j];
+                                    itemList[j] = itemList[j + 1];
+                                    itemList[j + 1] = temp;
                                 }
 
                             }
@@ -412,17 +417,17 @@ namespace TheFinalProject
                         Menu.GoToMenu();
                         break;
                     case 3:
-                        max = ItemOrganisation.itemList.Count - 1;
+                        max = itemList.Count - 1;
                         for (int i = 0; i < max; i++)
                         {
                             int left = max - i;
                             for (int j = 0; j < left; j++)
                             {
-                                if (ItemOrganisation.itemList[j].Quantity > ItemOrganisation.itemList[j + 1].Quantity)
+                                if (itemList[j].Quantity > itemList[j + 1].Quantity)
                                 {
-                                    Item temp = ItemOrganisation.itemList[j];
-                                    ItemOrganisation.itemList[j] = ItemOrganisation.itemList[j + 1];
-                                    ItemOrganisation.itemList[j + 1] = temp;
+                                    Item temp = itemList[j];
+                                    itemList[j] = itemList[j + 1];
+                                    itemList[j + 1] = temp;
                                 }
 
                             }
@@ -433,17 +438,17 @@ namespace TheFinalProject
                         Menu.GoToMenu();
                         break;
                     case 4:
-                        max = ItemOrganisation.itemList.Count - 1;
+                        max = itemList.Count - 1;
                         for (int i = 0; i < max; i++)
                         {
                             int left = max - i;
                             for (int j = 0; j < left; j++)
                             {
-                                if (ItemOrganisation.itemList[j].Price > ItemOrganisation.itemList[j + 1].Price)
+                                if (itemList[j].Price > itemList[j + 1].Price)
                                 {
-                                    Item temp = ItemOrganisation.itemList[j];
-                                    ItemOrganisation.itemList[j] = ItemOrganisation.itemList[j + 1];
-                                    ItemOrganisation.itemList[j + 1] = temp;
+                                    Item temp = itemList[j];
+                                    itemList[j] = itemList[j + 1];
+                                    itemList[j + 1] = temp;
                                 }
 
                             }

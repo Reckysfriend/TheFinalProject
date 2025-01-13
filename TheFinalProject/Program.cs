@@ -4,24 +4,13 @@
     {
         static void Main(string[] args)
         {
-            /*  1.Som shoppare vill jag kunna se olika produkter till försäljning för att när jag hittar det jag är
-                intresserade av, köpa den genom att lägga den till kundvagnen.
-
-                2.Som shoppare vill jag kunna hantera produkter i min kundvagn tex lägg till ta bort och
-                uppdatera.Jag vill se vad jag ska betala totalt för produkterna i kundvagnen.
-
-                3.Som administratör vill jag kunna hantera produktlistan och lägga till, redigera eller ta bort
-                produkter till försäljning från webbplatsen.
-
-                4.Kom på och skriv ner fyra egna user stories som du implementerar i din app.
-            */
-
-
-
-
-
             Debug debug = new Debug();
-            debug.RunDebug();
+            //Debug generates large quantity of random items
+            // debug.RunDebug();
+
+            //Debug2 allows the admin to create specific items ahead of starting
+            //the program.
+            // debug.RunDebug2();
 
 
             Console.WriteLine("DUE TO LACK OF KNOWLEDGE FROM THE IT DEPARMENT IF YOU INPUT A LETTER DURING A MENU CHOICE IT " +
