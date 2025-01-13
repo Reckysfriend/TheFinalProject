@@ -18,10 +18,13 @@ namespace TheFinalProject
         public ItemCategory Category { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
+        //Makes sure ID cannot be edited outside of an items creation.
         public int ID { get; private set; }
         
+        //Blank constructor incase of function reference
         public Item() { }
 
+        //Constructor to make a fully fleded item
         public Item(string name, string description, ItemCategory category, double price, int qunatity)
         {
             Name = name;
@@ -29,9 +32,12 @@ namespace TheFinalProject
             Category = category;
             Price = price;
             Quantity = qunatity;
+            //Makes sure every item has a unique ID
             nextID++;
             ID = nextID;
         }
+        //Constructor for quickly making a copy of an item when we move it to 
+        //ShoppingCart
         public Item(Item other)
         {
             Name = other.Name;
@@ -43,10 +49,12 @@ namespace TheFinalProject
         }
         public override string ToString()
         {
+            //Override to write out the item in the catalog if it has stock
             if (Quantity > 0) 
             {
                 return $"\n{Name}\nPRICE: {Price}$\nSTOCK:{Quantity}";
             }
+            //Override to write out the item in the catalog if it has no stock
             else
             {
                 return $"\n{Name}\n OUT OF STOCK!\n";

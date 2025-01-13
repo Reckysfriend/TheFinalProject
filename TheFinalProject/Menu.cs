@@ -11,6 +11,7 @@ namespace TheFinalProject
     {
         static public void GoToMenu()
         {
+            //Changes menu string depending on if adminMode is on or off
             string menuStr = "WELCOME TO CHEAP CHEATING SHOPPERS!\n\n[1] VIEW CATALOG\n[2] VIEW CART\n[3] SORT CATALOG";
             if (Admin.adminMode == true)
             {
@@ -49,11 +50,13 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     case 4:
+                        //Only accessible if adminMode is on
                         if (Admin.adminMode == true)
                         {
                             Console.Clear();
                             Item.CreateItem();
                         }
+                        //If adminMode is off, enable it
                         else
                         {
                             Console.Clear();
@@ -62,6 +65,7 @@ namespace TheFinalProject
                         }
                         break;
                     case 5:
+                        //Only accessible if adminMode is on
                         if (Admin.adminMode == true)
                         {
                             Console.Clear();
@@ -71,6 +75,7 @@ namespace TheFinalProject
                         GoToMenu();
                         break;
                     case 6:
+                        //Only accessible if adminMode is on. Turns off adminMode
                         if (Admin.adminMode == true)
                         {
                             Console.Clear();
