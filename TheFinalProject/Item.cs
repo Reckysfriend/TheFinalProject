@@ -82,17 +82,17 @@ namespace TheFinalProject
                 //Changes the menu if the item is ready to be created. 
                 if (hasName == true && hasDescription == true && hasCategory == true && hasPrice == true && hasQuantity == true)
                 {
-                    Console.Write($"What would you like to add \n[1]Name: {itemName}\n[2]Description: {description}\n[3]Category: {category}\n[4]Price: {itemPrice}$\n[5]Quantity: {itemQuantity}x\n[6]Add item\nChoice:");
+                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\n[6]ADD ITEM\nChOICE:");
                 }
                 else
                 {
-                    Console.Write($"What would you like to add \n[1]Name: {itemName}\n[2]Description: {description}\n[3]Category: {category}\n[4]Price: {itemPrice}$\n[5]Quantity: {itemQuantity}x\nChoice:");
+                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\nCHOICE:");
                 }
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice) 
                 {
                     case 1:
-                        Console.WriteLine("Please type desired name for item");
+                        Console.WriteLine("PLEASE TYPE DESIRED NAME FOR ITEM");
                         string userInput = Console.ReadLine();
                         int i = 1;
                         foreach (var catalogItem in ItemOrganisation.itemList)
@@ -102,7 +102,7 @@ namespace TheFinalProject
                             if (catalogItem.Name == userInput)
                             {
                                 Console.Clear();
-                                Console.WriteLine("An item already exists with this name please choose another name");
+                                Console.WriteLine("AN ITEM ALREADY EXISTS WITH THAT NAME PLEASE CHOOSE ANOTHER");
                             }
                             else
                             {
@@ -114,8 +114,8 @@ namespace TheFinalProject
                         Console.Clear();
                         break;
                     case 2:
-                        //Sets item description to userinput
-                        Console.WriteLine("Type the desired description");
+
+                        Console.WriteLine("TYPE THE DESIRED DESCRIPTION");
                         string userDescription = Console.ReadLine() ;
                         description = userDescription;
                         hasDescription = true;
@@ -125,7 +125,7 @@ namespace TheFinalProject
                         bool categoryLoop = true;
                         while (categoryLoop)
                         {
-                            Console.WriteLine("Type desired category");
+                            Console.WriteLine("TYPE DESIRED CATEGORY");
                             i = 1;
                             Console.WriteLine($"");
                             //Displays all values from the Enum "ItemCategory"
@@ -149,13 +149,13 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Please enter a valid choice");
+                                Console.WriteLine("PLEASE ENTER A VALID CHOICE");
                             }
                         }
                         Console.Clear();
                         break;
                     case 4:
-                        Console.WriteLine("Type price of item");
+                        Console.WriteLine("TYPE PRICE OF ITEM");
                         bool innerLoop = true;
                         while (innerLoop)
                         {
@@ -170,13 +170,13 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Aint nobody getting free stuff!");
+                                Console.WriteLine("ITEMS CANNOT BE FREE PLEASE TYPE ANOTHER PRICE");
                             }
                         }
                         Console.Clear();
                         break;
                     case 5:
-                        Console.WriteLine("Type Quantity of item");
+                        Console.WriteLine("TYPE QUANTITY OF ITEM");
                         bool subLoop = true;
                         while (subLoop)
                         {
@@ -192,7 +192,7 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("You can't add no quantity!");
+                                Console.WriteLine("YOU CAN'T ADD NEGATIVE QUANTITY!");
                             }
                         }
                         Console.Clear();
@@ -205,7 +205,7 @@ namespace TheFinalProject
                             Item item = new Item(itemName, description, category, itemPrice, itemQuantity);
                             ItemOrganisation.itemList.Add(item);
                             Console.Clear();
-                            Console.WriteLine("You have added an item");
+                            Console.WriteLine("YOU HAVE ADDED AN ITEM");
                         }
                         else
                         {
@@ -220,7 +220,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     default:
-                        Console.WriteLine("This is not a valid input");
+                        Console.WriteLine("THIS IS NOT A VALID INPUT");
                         menu = false;
                         break;
                 }

@@ -111,8 +111,8 @@ namespace TheFinalProject
                                 while (subChoice)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine($"\t\tHow many {name} would you like to buy? ({quantity} in stock)");
-                                    Console.Write("\n\n\t\tEnter 0 to return: ");
+                                    Console.WriteLine($"\t\tHOW MANY {name} WOULD YOU LIKE TO BUY? ({quantity} IN STOCK)");
+                                    Console.Write("\n\n\t\tENTER 0 TO RETURN: ");
                                     Int32.TryParse(Console.ReadLine(), out int userInput);
                                     if (userInput == 0)
                                     {
@@ -136,7 +136,7 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Sorry this item is out of stock");
+                                Console.WriteLine("SORRY THIS ITEM IS OUT OF STOCK");
                                 choiceLoop = false;
                                 GoToItem(index);
                             }
@@ -157,7 +157,7 @@ namespace TheFinalProject
             bool subLoop = false;
             while (choiceLoop)
             {
-                Console.WriteLine("General:\n[1] Name [2] Descrpition [3] Category [4] Price [5] Stock\n\n[0] Return");
+                Console.WriteLine("GENERAL:\n[1] NAME [2] DESCRIPTION [3] CATEGORY [4] PRICE [5] STOCK\n\n[0] RETURN");
                 Int32.TryParse(Console.ReadLine(), out int choice);
                 switch (choice)
                 {
@@ -166,14 +166,14 @@ namespace TheFinalProject
                         GoToItem(index);
                         break;
                     case 1:
-                        Console.WriteLine($"Current name: {item.Name}");
-                        Console.Write("\nNew name:");
+                        Console.WriteLine($"CURRENT NAME: {item.Name}");
+                        Console.Write("\nNEW NAME:");
                         string newName = Console.ReadLine();
                         subLoop = true;
                         while (subLoop)
                         {
                             Console.Clear();
-                            Console.WriteLine($"Confirm name override\n\nOld Name: {item.Name}\nNew Name: {newName}\n\n[1] Replace   [2] Return");
+                            Console.WriteLine($"CONFIRM NAME OVERRIDE\n\nOLD NAME: {item.Name}\nNEW NAME: {newName}\n\n[1] REPLACE   [2] RETURN");
                             Int32.TryParse(Console.ReadLine(), out int subChoice);
                             switch (subChoice)
                             {
@@ -187,22 +187,22 @@ namespace TheFinalProject
                                     break;
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("Please enter a valid choice\n");
+                                    Console.WriteLine("PLEASE ENTER A VALID CHOICE\n");
                                     break;
                             }
                         }
                         
                         break;
                     case 2:
-                        Console.WriteLine($"Current Description: {item.Description}");
-                        Console.Write("\nNew Description:");
+                        Console.WriteLine($"CURRENT DESCRIPTION: {item.Description}");
+                        Console.Write("\nNEW DESCRIPTION:");
                         string newDescription = Console.ReadLine();
                         subLoop = true;
                         while (subLoop)
                         {
                             Console.Clear();
-                            Console.WriteLine($"Confirm name override\n\nOld Description: {item.Description}\nNew Description: " +
-                                $"{newDescription}\n\n[1] Replace   [2] Return");
+                            Console.WriteLine($"CONFIRM NAME OVERRIDE\n\nOLD DESCRIPTION: {item.Description}\nNEW DESCRIPTION: " +
+                                $"{newDescription}\n\n[1] REPLACE   [2] RETURN");
                             Int32.TryParse(Console.ReadLine(), out int subChoice);
                             switch (subChoice)
                             {
@@ -216,7 +216,7 @@ namespace TheFinalProject
                                     break;
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("Please enter a valid choice\n");
+                                    Console.WriteLine("PLEASE ENTER A VALID CHOICE\n");
                                     break;
                             }
                         }
@@ -227,7 +227,7 @@ namespace TheFinalProject
                         while (categoryLoop)
                         {
                             int i = 1;
-                            Console.WriteLine($"Current Category: {item.Category}");
+                            Console.WriteLine($"CURRENT CATEFORY: {item.Category}");
                             foreach (var name in Enum.GetNames(typeof(ItemCategory)))
                             {
                                 Console.WriteLine($"[{i}]: {name}");
@@ -242,8 +242,8 @@ namespace TheFinalProject
                                 while (subLoop)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine($"Confirm name override\n\nOld Category: {item.Category}\nNew Category: " +
-                                        $"{(ItemCategory)categoryChoice}\n\n[1] Replace   [2] Return");
+                                    Console.WriteLine($"CONFIRM NAME OVERRIDE\n\nOLD CATEGORY: {item.Category}\nNEW CATEGORY: " +
+                                        $"{(ItemCategory)categoryChoice}\n\n[1] REPLACE   [2] RETURN");
                                     Int32.TryParse(Console.ReadLine(), out int subChoice);
                                     switch (subChoice)
                                     {
@@ -258,7 +258,7 @@ namespace TheFinalProject
                                             break;
                                         default:
                                             Console.Clear();
-                                            Console.WriteLine("Please enter a valid choice\n");
+                                            Console.WriteLine("PLEASE ENTER A VALID CHOICE\n");
                                             break;
                                     }
                                 }
@@ -266,14 +266,14 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Please enter a valid choice");
+                                Console.WriteLine("PLEASE ENTER A VALID CHOICE");
                             }
                         }
                         break;
                     case 4:
                         int newPrice = 0;
-                        Console.WriteLine($"Current Price: {item.Price}$");
-                        Console.Write("\nNew Price:");
+                        Console.WriteLine($"CURRENT PRICE: {item.Price}$");
+                        Console.Write("\nNEW PRICE:");
                         subLoop = true;
                         while (subLoop)
                         {
@@ -285,15 +285,15 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Please enter a valid number");
+                                Console.WriteLine("PLEASE ENTER A VALID NUMBER");
                             }
                         }
                         subLoop = true;
                         while (subLoop)
                         {
                             Console.Clear();
-                            Console.WriteLine($"Confirm price override\n\nOld Price: {item.Price}$\nNew Price: " +
-                                $"{newPrice}$\n\n[1] Replace   [2] Return");
+                            Console.WriteLine($"CONFIRM PRICE OVERRIDE\n\nOLD PRICE: {item.Price}$\nNEW PRICE: " +
+                                $"{newPrice}$\n\n[1] REPLACE   [2] RETURN");
                             Int32.TryParse(Console.ReadLine(), out int subChoice);
                             switch (subChoice)
                             {
@@ -307,15 +307,15 @@ namespace TheFinalProject
                                     break;
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("Please enter a valid choice\n");
+                                    Console.WriteLine("PLEASE ENTER A VALID CHOICE\n");
                                     break;
                             }
                         }
                         break;
                     case 5:
                         int newStock = 0;
-                        Console.WriteLine($"Current Stock: {item.Quantity}");
-                        Console.Write("\nNew Stock:");
+                        Console.WriteLine($"CURRENT STOCK: {item.Quantity}");
+                        Console.Write("\nNEW STOCK:");
                         subLoop = true;
                         while (subLoop)
                         {
@@ -327,15 +327,15 @@ namespace TheFinalProject
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Please enter a valid number");
+                                Console.WriteLine("PLEASE ENTER A VALID NUMBER");
                             }
                         }
                         subLoop = true;
                         while (subLoop)
                         {
                             Console.Clear();
-                            Console.WriteLine($"Confirm stock override\n\nOld Stock: {item.Quantity}\nNew Stock: " +
-                                $"{newStock}\n\n[1] Replace   [2] Return");
+                            Console.WriteLine($"CONFFIRM STOCK OVERRIDE\n\nOLD STOCK: {item.Quantity}\nNEW STOCK: " +
+                                $"{newStock}\n\n[1] REPLACE   [2] RETURN");
                             Int32.TryParse(Console.ReadLine(), out int subChoice);
                             switch (subChoice)
                             {
@@ -349,7 +349,7 @@ namespace TheFinalProject
                                     break;
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("Please enter a valid choice\n");
+                                    Console.WriteLine("PLEASE ENTER A VALID CHOICE\n");
                                     break;
                             }
                         }
@@ -357,7 +357,7 @@ namespace TheFinalProject
                    
                     default:
                         Console.Clear();
-                        Console.WriteLine("Please enter a valid menu choice");
+                        Console.WriteLine("PLEASE ENTER A VALID MENU CHOICE");
                         break;
                 }
             }
@@ -368,7 +368,7 @@ namespace TheFinalProject
             bool loop = true;
             while (loop)
             {
-                Console.WriteLine("How do you wanna sort the catalog?\n\t[1] Name  [2] Category  [3] Stock  [4] Price  [5] Return");
+                Console.WriteLine("HOW DO YOU WANNA SORT THE CATALOG?\n\t[1] NAME  [2] CATEGORY  [3] STOCK  [4] PRICE  [5] RETURN");
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice)
                 {
@@ -465,7 +465,7 @@ namespace TheFinalProject
                         break;
                     default:
                         Console.Clear();
-                        Console.WriteLine("Please enter a valid sorting choice.\n");
+                        Console.WriteLine("PLEASE ENTER A VALID SORTING CHOICE.\n");
                         break;
                 }
             }
