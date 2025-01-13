@@ -82,7 +82,7 @@ namespace TheFinalProject
                         break;
                     default:
                         Console.Clear();
-                        Console.WriteLine("Invalid menu choice\n");
+                        Console.WriteLine("INVALID MENU CHOICE\n");
                         break;
 
                 }
