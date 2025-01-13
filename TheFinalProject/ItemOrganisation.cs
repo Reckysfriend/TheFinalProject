@@ -58,6 +58,7 @@ namespace TheFinalProject
             int quantity = itemList[index].Quantity;
             int id = itemList[index].ID;
             bool choiceLoop = true;
+            //Only show the editorial options if you are in adminMode
             if (Admin.adminMode == true )
             {
                 
@@ -90,6 +91,7 @@ namespace TheFinalProject
                 }
                 }                      
             }
+            //Otherwise show the normal user menu.
             else
             {
                 Console.WriteLine($"{name}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
@@ -105,6 +107,7 @@ namespace TheFinalProject
                             DisplayCatlog();
                             break;
                         case 1:
+                            //Only allows you to add a item to cart if it has stock
                             if (quantity != 0)
                             {
                                 bool subChoice = true;
@@ -114,12 +117,14 @@ namespace TheFinalProject
                                     Console.WriteLine($"\t\tHOW MANY {name} WOULD YOU LIKE TO BUY? ({quantity} IN STOCK)");
                                     Console.Write("\n\n\t\tENTER 0 TO RETURN: ");
                                     Int32.TryParse(Console.ReadLine(), out int userInput);
+                                    //Returns to the item page if you enter 0
                                     if (userInput == 0)
                                     {
                                         subChoice = false;
                                         Console.Clear();
                                         GoToItem(index);
                                     }
+                                    //Prevents you from adding more stock than there is
                                     else if (userInput <= quantity)
                                     {
                                         Console.Clear();
@@ -149,10 +154,11 @@ namespace TheFinalProject
                 }
             }
 
-        }       
+        }
+        //Allows you to replace any value except ID on a already exsisting item.
         static void ItemEdit(Item item, int index)
         {
-           
+        
             bool choiceLoop = true;
             bool subLoop = false;
             while (choiceLoop)
@@ -362,6 +368,7 @@ namespace TheFinalProject
                 }
             }
         }
+        //Allows you to sort the catalog with the use of a bubblesort
         public static void SortList()
         {
             int max = itemList.Count - 1;
