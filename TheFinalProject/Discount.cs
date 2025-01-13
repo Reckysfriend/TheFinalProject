@@ -18,7 +18,7 @@ namespace TheFinalProject
         public static void GoToDiscountManager()
         {
             Console.WriteLine($"WHAT WOULD YOU LIKE TO DO (CURRENTY DISCOUNT: {currentDiscount}%)\n\n[1] SET NEW DISCOUNT" +
-                $"\n[3] CLEAR CURRENT DISCOUNT\n\n[0] RETURN");
+                $"\n[2] CLEAR CURRENT DISCOUNT\n\n[0] RETURN");
             bool loop = true;
             while ( loop )
             {
