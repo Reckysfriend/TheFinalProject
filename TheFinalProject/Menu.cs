@@ -45,7 +45,7 @@ namespace TheFinalProject
                     case 3:
 
                         Console.Clear();
-                        ItemSorting.SortList();
+                        ItemOrganisation.SortList();
                         menu = false;
                         break;
                     case 4:
