@@ -10,6 +10,7 @@ namespace TheFinalProject
     {
         Item item = new Item();
         Random random = new Random();
+        //Enter amount of random item you wish to generate below
         int QuanityOfItemsToGenerate = 10;
         public void RunDebug()
         {
@@ -29,6 +30,7 @@ namespace TheFinalProject
         }
         public void RunDebug2()
         {
+            //Change the values of the items you wanna generate
             Item item1 = new Item("Apple", "It is a fruit", ItemCategory.Merchandise, 5, 0);
             Item item2= new Item("Pear", "It is a fruit", ItemCategory.Merchandise, 4, 15);
             Item item3 = new Item("Berry", "It is a berry", ItemCategory.Merchandise, 15, 100);

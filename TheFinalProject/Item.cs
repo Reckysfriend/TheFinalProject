@@ -64,11 +64,13 @@ namespace TheFinalProject
         }
         static public void CreateItem()
         {
+            //Adds a way to check which item properties have been added.
             bool hasName = false;
             bool hasDescription = false;
             bool hasCategory = false;
             bool hasPrice = false;
             bool hasQuantity = false;
+
             string itemName = "";
             string description = "";
             ItemCategory category = (ItemCategory)0;
@@ -77,6 +79,7 @@ namespace TheFinalProject
             bool menu = true;
             while (menu) 
             {
+                //Changes the menu if the item is ready to be created. 
                 if (hasName == true && hasDescription == true && hasCategory == true && hasPrice == true && hasQuantity == true)
                 {
                     Console.Write($"What would you like to add \n[1]Name: {itemName}\n[2]Description: {description}\n[3]Category: {category}\n[4]Price: {itemPrice}$\n[5]Quantity: {itemQuantity}x\n[6]Add item\nChoice:");
@@ -94,6 +97,8 @@ namespace TheFinalProject
                         int i = 1;
                         foreach (var catalogItem in ItemOrganisation.itemList)
                         {
+                            //Checks if the item already exsists by name to prevent
+                            //Multiple items of the same name as they should be edited instead
                             if (catalogItem.Name == userInput)
                             {
                                 Console.Clear();
@@ -101,6 +106,7 @@ namespace TheFinalProject
                             }
                             else
                             {
+                                //Confirms we have set a name
                                 itemName = userInput;
                                 hasName = true;
                             }
@@ -108,6 +114,7 @@ namespace TheFinalProject
                         Console.Clear();
                         break;
                     case 2:
+                        //Sets item description to userinput
                         Console.WriteLine("Type the desired description");
                         string userDescription = Console.ReadLine() ;
                         description = userDescription;
@@ -121,16 +128,20 @@ namespace TheFinalProject
                             Console.WriteLine("Type desired category");
                             i = 1;
                             Console.WriteLine($"");
+                            //Displays all values from the Enum "ItemCategory"
                             foreach (var name in Enum.GetNames(typeof(ItemCategory)))
                             {
                                 Console.WriteLine($"[{i}]: {name}");
                                 i++;
                             }
+                            //Checks how many values there are for our menu choice
                             int amountOfCategories = Enum.GetValues(typeof(ItemCategory)).Length;
                             Int32.TryParse(Console.ReadLine(), out int categoryChoice);
                             categoryChoice -= 1;
+                            //Checks if the choice is within the avilable options
                             if (categoryChoice >= 0 && categoryChoice <= amountOfCategories)
                             {
+                                //Sets the category equal to the userinput's index - 1
                                 category = (ItemCategory)categoryChoice;
                                 hasCategory = true;
                                 categoryLoop = false;
@@ -149,6 +160,7 @@ namespace TheFinalProject
                         while (innerLoop)
                         {
                             Double.TryParse(Console.ReadLine(), out double userPrice);
+                            //Makes it so you cannot create a free item
                             if (userPrice > 0)
                             {
                                 innerLoop = false;
@@ -169,6 +181,8 @@ namespace TheFinalProject
                         while (subLoop)
                         {
                             Int32.TryParse(Console.ReadLine(), out int userQuantity);
+                            //Allows you to create a item that has yet arrived in stock by setting
+                            //its quantity to 0
                             if (userQuantity >= 0)
                             {
                                 itemQuantity = userQuantity;
@@ -184,6 +198,8 @@ namespace TheFinalProject
                         Console.Clear();
                         break;
                     case 6:
+                        //Checks that all variables for the item constructor are satisfied
+                        //before atemptting to create it. 
                         if (hasName == true && hasDescription == true &&  hasCategory == true && hasPrice == true && hasQuantity == true)
                         {
                             Item item = new Item(itemName, description, category, itemPrice, itemQuantity);

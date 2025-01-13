@@ -12,15 +12,22 @@ namespace TheFinalProject
 {
     internal class ShoppingCart
     {
+        //Static list that holds our shoppingCart items since we only want
+        //one instance of it.
          static public List<Item> ShoppingCartList = new List<Item>();
          static public void AddItemToShoppingCart(Item item)
         {
+            //Only compares item ID if the cart is not empty. Otherwise there is nothing
+            //to compare with
             if (ShoppingCartList.Count != 0)
             {
                 foreach (var cartitem in ShoppingCartList)
                 {
                     if (cartitem.ID == item.ID)
                     {
+                        //Changes the quantity of a item that is already in 
+                        //the cart instead of creating a new copy of the same
+                        //item.
                         cartitem.Quantity += item.Quantity;
                     }
                     else
@@ -29,6 +36,7 @@ namespace TheFinalProject
                     }
                 }
             }
+            //If the cart is empty, add the item.
             else
             {
                 ShoppingCartList.Add(item);
@@ -38,6 +46,8 @@ namespace TheFinalProject
         }
          static public double Addtotalvalue()
         {
+            //Multiples all items quantity with their price 
+            //and add them together
             double totalPrice = 0;
             foreach (Item item in ShoppingCartList)
             {
@@ -51,6 +61,7 @@ namespace TheFinalProject
         {
             double totalprice = Addtotalvalue();
             Console.WriteLine("Cart");
+            //Displays all items that are in the cart
             foreach (Item item in ShoppingCartList)
             {
                 Console.WriteLine($"{item.Name}     x{item.Quantity}\n");
@@ -95,6 +106,7 @@ namespace TheFinalProject
                 switch (menuChoice)
                 {
                     case 1:
+                        //Makes sure that you cannot buy an empty cart
                         if (ShoppingCartList.Count <= 0)
                         {
                             Console.Clear();
@@ -102,6 +114,7 @@ namespace TheFinalProject
                             menu = false;
                             ViewCart();
                         }
+                        //Otherwise clear the cart of all items.
                         else
                         {
                             ShoppingCartList.Clear();
@@ -141,6 +154,7 @@ namespace TheFinalProject
                         menu = false;
                         break;
                     case 2:
+                        //Checks that there are items to remove
                         if (ShoppingCartList.Count <= 0)
                         {
                             Console.Clear();
@@ -149,14 +163,18 @@ namespace TheFinalProject
                         else
                         {
                             Console.Clear();
+                            //Removes all item from cart
                             foreach (var cartItem in ShoppingCartList)
                             {
                                 foreach (var catalogItem in ItemOrganisation.itemList)
+                                //Compares the ID of items in cart with those of the catalog
+                                //and readds all the stock removed from ShoppingCart
                                 if (catalogItem.ID == cartItem.ID)
                                 {
                                     catalogItem.Quantity += cartItem.Quantity;
                                 }
                             }
+                            //After all the stock has been readded we remove empty the cart
                             ShoppingCartList.Clear();
                             Console.WriteLine("You just cleared the cart");
                         }
@@ -174,6 +192,7 @@ namespace TheFinalProject
         {
             bool choiceLoop = true;
             int i = 1;
+            //Displays all item in cart
             foreach (Item item in ShoppingCartList)
             {
                 Console.WriteLine($"====================\n\t[{i}]\n{item}\n====================");
@@ -189,6 +208,8 @@ namespace TheFinalProject
                     choiceLoop = false;
                     ViewCart();
                 }
+                //If the choosen item exsists in the cart choose how many
+                //to remove.
                 else if (indexChoice >= 1 && indexChoice <= ShoppingCartList.Count)
                 {
                     Item selectedItem = ShoppingCartList[indexChoice - 1];
@@ -199,6 +220,7 @@ namespace TheFinalProject
                     {
                         if (quantityToRemove == selectedItem.Quantity)
                         {
+                            //Returns the stock of the specifide item to itemList
                             foreach (var catalogItem in ItemOrganisation.itemList)
                             {
                                 if (catalogItem.ID == selectedItem.ID)
@@ -206,10 +228,12 @@ namespace TheFinalProject
                                     catalogItem.Quantity += quantityToRemove;
                                 }
                             }   
+                            //Removes the specifide item from the cart since it has 0 quantity
                             ShoppingCartList.RemoveAt(indexChoice - 1);
                         }
                         else
                         {
+                            //Returns the stock of the specifide item to itemList
                             foreach (var catalogItem in ItemOrganisation.itemList)
                             {
                                 if (catalogItem.ID == selectedItem.ID)
@@ -217,6 +241,7 @@ namespace TheFinalProject
                                     catalogItem.Quantity += quantityToRemove;
                                 }
                             }
+                            //Reduces quantity in cart based on how many the user wanted to remove
                             ShoppingCartList[indexChoice - 1].Quantity -= quantityToRemove;
                         }
                         Console.Clear();
