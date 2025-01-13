@@ -10,7 +10,10 @@ namespace TheFinalProject
 {
     internal class Discount
     {
+        // Display current discount as a static double, this system only supports a single
+        //discount as the same time hence making it static
         public static double currentDiscount = 0;
+        //A bool to make sure we cannot accidently apply multiple discounts. 
         static bool hasDiscount = false;
         public static void GoToDiscountManager()
         {
@@ -58,11 +61,14 @@ namespace TheFinalProject
                     Double.TryParse(Console.ReadLine(), out double discount);
                     if (discount > 0)
                     {
+                        //Loop through all items we have in stock and apply the discount
+                        //to them.
                         foreach (var item in ItemOrganisation.itemList)
                         {
                             item.Price = item.Price * (1 - (discount / 100));
                         }
                         currentDiscount = discount;
+                        //Make sure we cannot accidently apply a secound discount
                         hasDiscount = true;
                         Console.Clear();
                         GoToDiscountManager();
@@ -84,11 +90,12 @@ namespace TheFinalProject
         }
         public static void ClearDiscount()
         {
-            
+            //Reverse the previous applied discount
             foreach (var item in ItemOrganisation.itemList)
             {
                 item.Price = item.Price / (1 - (currentDiscount / 100));
             }
+            //Allow us to apply a new discount
             hasDiscount= false;
             currentDiscount = 0;
         }
