@@ -31,10 +31,10 @@ namespace TheFinalProject
         public void RunDebug2()
         {
             //Change the values of the items you wanna generate
-            Item item1 = new Item("Apple", "It is a fruit", ItemCategory.Merchandise, 5, 0);
-            Item item2= new Item("Pear", "It is a fruit", ItemCategory.Merchandise, 4, 15);
-            Item item3 = new Item("Berry", "It is a berry", ItemCategory.Merchandise, 15, 100);
-            Item item4 = new Item("Cucumber", "It is a vegetable", ItemCategory.Merchandise, 2, 1000);
+            Item item1 = new Item("Apple", "We don't really sell fruit", ItemCategory.Merchandise, 5, 0);
+            Item item2= new Item("Arkham Horror LCG", "A deckbuilding mystery adventure card game.", ItemCategory.BoardGames, 60, 15);
+            Item item3 = new Item("Skyrim", "The mordern RPG Godfather", ItemCategory.VideoGames, 30, 100);
+            Item item4 = new Item("Percy Jackson: The Lightning Theif", "A greek childhood classic", ItemCategory.Book, 12, 1000);
             ItemOrganisation.itemList.Add(item1);
             ItemOrganisation.itemList.Add(item2);
             ItemOrganisation.itemList.Add(item3);

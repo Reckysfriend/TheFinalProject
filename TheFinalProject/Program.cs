@@ -10,7 +10,7 @@
 
             //Debug2 allows the admin to create specific items ahead of starting
             //the program.
-            // debug.RunDebug2();
+            debug.RunDebug2();
 
 
             Console.WriteLine("DUE TO LACK OF KNOWLEDGE FROM THE IT DEPARMENT IF YOU INPUT A LETTER DURING A MENU CHOICE IT " +
