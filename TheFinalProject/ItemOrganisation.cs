@@ -46,6 +46,12 @@ namespace TheFinalProject
                     choiceLoop = false;
                     GoToItem(indexChoice - 1);
                 }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Not a valid choice");
+                    DisplayCatlog();
+                }
                 
             }
         }
