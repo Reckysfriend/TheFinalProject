@@ -80,7 +80,6 @@ namespace TheFinalProject
                         break;
                     case 2:
                         RemoveItem();
-                        Menu.GoToMenu();
                         menu = false;
                         break;
                     case 3:
