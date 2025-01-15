@@ -44,7 +44,7 @@ namespace TheFinalProject
            
                      
         }
-         static public double Addtotalvalue()
+         static public double AddTotalValue()
         {
             //Multiples all items quantity with their price 
             //and add them together
@@ -59,7 +59,7 @@ namespace TheFinalProject
         }
          static public void ViewCart()
         {
-            double totalprice = Addtotalvalue();
+            double totalprice = AddTotalValue();
             //Displays all items that are in the cart
             Console.WriteLine("CART");
             foreach (Item item in ShoppingCartList)

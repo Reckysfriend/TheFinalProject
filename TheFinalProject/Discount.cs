@@ -12,7 +12,7 @@ namespace TheFinalProject
     {
         // Display current discount as a static double, this system only supports a single
         //discount as the same time hence making it static
-        public static double currentDiscount = 0;
+        static double currentDiscount = 0;
         //A bool to make sure we cannot accidently apply multiple discounts. 
         static bool hasDiscount = false;
         public static void GoToDiscountManager()
@@ -49,7 +49,7 @@ namespace TheFinalProject
                 }
             }
         }
-        public static void SetDiscount()
+        static void SetDiscount()
         {
             if (hasDiscount == false)
             {
@@ -88,7 +88,7 @@ namespace TheFinalProject
             }
             
         }
-        public static void ClearDiscount()
+        static void ClearDiscount()
         {
             //Reverse the previous applied discount
             foreach (var item in ItemOrganisation.itemList)

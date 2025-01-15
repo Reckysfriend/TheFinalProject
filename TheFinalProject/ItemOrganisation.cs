@@ -14,7 +14,7 @@ namespace TheFinalProject
         static public List<Item> itemList = new List<Item>();
 
 
-        static public void DisplayCatlog()
+        static public void DisplayCatelog()
         {
             string input = "ENTER THE # OF THE ITEM YOU WISH TO VIEW (0 TO RETURN):";
             //Displays a different string if you ar ein adminMode.
@@ -74,7 +74,7 @@ namespace TheFinalProject
                         case 0:
                             Console.Clear();
                             choiceLoop = false;
-                            DisplayCatlog();
+                            DisplayCatelog();
                             break;
                         case 1:
                             Console.Clear();
@@ -82,7 +82,7 @@ namespace TheFinalProject
                             break;
                         case 2:
                             itemList.RemoveAt(index);
-                            DisplayCatlog();
+                            DisplayCatelog();
                         break;                  
                     default:
                         Console.Clear();
@@ -104,7 +104,7 @@ namespace TheFinalProject
                     {
                         case 0:
                             choiceLoop = false;
-                            DisplayCatlog();
+                            DisplayCatelog();
                             break;
                         case 1:
                             //Only allows you to add a item to cart if it has stock
