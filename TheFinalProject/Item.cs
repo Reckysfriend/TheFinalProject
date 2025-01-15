@@ -82,11 +82,11 @@ namespace TheFinalProject
                 //Changes the menu if the item is ready to be created. 
                 if (hasName == true && hasDescription == true && hasCategory == true && hasPrice == true && hasQuantity == true)
                 {
-                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\n[6]ADD ITEM\n [7]Go to menu\nChOICE:");
+                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\n[6]ADD ITEM\n [0]Go to menu\nChOICE:");
                 }
                 else
                 {
-                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\n[7]Go to Menu\nCHOICE:");
+                    Console.Write($"WHAT WOULD YOU LIKE TO ADD \n[1]NAME: {itemName}\n[2]DESCRIPTION: {description}\n[3]CATEGORY: {category}\n[4]PRICE: {itemPrice}$\n[5]QUANTITY: {itemQuantity}x\n[0]Go to Menu\nCHOICE:");
                 }
                 Int32.TryParse(Console.ReadLine(), out int menuChoice);
                 switch (menuChoice) 
