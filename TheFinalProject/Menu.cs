@@ -35,7 +35,7 @@ namespace TheFinalProject
                         break;
                     case 1:
                         Console.Clear();
-                        ItemOrganisation.DisplayCatlog();
+                        ItemOrganisation.DisplayCatelog();
                         menu = false;
                         break;
                     case 2:
