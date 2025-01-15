@@ -50,7 +50,7 @@ namespace TheFinalProject
                 {
                     Console.Clear();
                     Console.WriteLine("Not a valid choice");
-                    DisplayCatlog();
+                    DisplayCatelog();
                 }
                 
             }
