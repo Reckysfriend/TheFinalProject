@@ -100,15 +100,17 @@ namespace TheFinalProject
             //Otherwise show the normal user menu.
             else
             {
-                Console.WriteLine($"{name}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
-                    $"{quantity}\n\n\t[1]ADD TO CART [0] RETURN");
+
                 choiceLoop = true;
                 while (choiceLoop)
                 {
+                    Console.WriteLine($"{name}\nDESCRIPTION: {description}\n\nPRICE: {price}$\nCATEGORY: {category}\nSTOCK: " +
+                    $"{quantity}\n\n\t[1]ADD TO CART [0] RETURN");
                     Int32.TryParse(Console.ReadLine(), out int choice);
                     switch (choice)
                     {
                         case 0:
+                            Console.Clear();
                             choiceLoop = false;
                             DisplayCatelog();
                             break;
@@ -151,7 +153,10 @@ namespace TheFinalProject
                                 choiceLoop = false;
                                 GoToItem(index);
                             }
-                           
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("THAT IS NOT A VALID OPTION"); 
                             break;
                        
                     }
