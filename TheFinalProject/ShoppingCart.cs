@@ -33,6 +33,7 @@ namespace TheFinalProject
                     else
                     {
                         ShoppingCartList.Add(item);
+                        break;
                     }
                 }
             }
